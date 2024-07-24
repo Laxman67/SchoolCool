@@ -1,0 +1,16 @@
+{
+  {
+    "firstName": "Laxman",
+    "lastName": "NA",
+    "dob": "08/09/2001",
+    "address": {
+      "street": "Near Gems School",
+      "city": "Batala",
+      "state": "Punjab",
+      "postalCode": "143505"
+    },
+    "email": "laksh@gmail.com",
+    "phone": "781419990",
+    "enrollmentStatus": "Enrolled"
+  }
+}
