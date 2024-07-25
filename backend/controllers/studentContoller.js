@@ -2,8 +2,9 @@ import studentModel from '../models/studentModel.js';
 import validator from 'validator';
 
 
+// Add Student
 export const addStudents = async (req, res) => {
-  const image = req.file.filename;
+  const image = req.file ? req.file.filename : null; // Ensure you handle cases where req.file might be undefined
   const {
     firstName,
     lastName,
@@ -28,8 +29,9 @@ export const addStudents = async (req, res) => {
     !enrollmentStatus ||
     !academicHistory
   ) {
-    res.status(404).json({ success: false, message: 'Provide all fields' });
+    return res.status(404).json({ success: false, message: 'Provide all fields' });
   }
+
   // Check for Valid Email
   if (!validator.isEmail(email)) {
     return res.status(404).json({
@@ -38,8 +40,7 @@ export const addStudents = async (req, res) => {
     });
   }
 
-  // Check for Exisiting user
-
+  // Check for Existing user
   const student = await studentModel.findOne({ email });
 
   if (student) {
@@ -59,21 +60,24 @@ export const addStudents = async (req, res) => {
     phone,
     enrollmentStatus,
     academicHistory,
+    image, // Include the image field
   });
 
   await newStudent
     .save()
     .then(() => {
-      res.status(201).json({ success: true, message: ' Student Added ' });
+      res.status(201).json({ success: true, message: 'Student Added' });
     })
     .catch((err) => {
       res.status(404).json({
         success: false,
-        message: 'Error Occured while Adding',
+        message: 'Error Occurred while Adding',
         errorMsg: err,
       });
     });
 };
+
+// All Student
 export const allStudents = async (req, res) => {
   const result = await studentModel.find();
 

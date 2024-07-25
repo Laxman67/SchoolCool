@@ -4,7 +4,7 @@ import { model, Schema } from 'mongoose';
 const studentSchema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
-  image:{type:String,required:true},
+  image:{type:String,required:false},
   dob: { type: Date, required: true },
   gender: { type: String, enum: ['Male', 'Female', 'Other'], required: true },
   address: {

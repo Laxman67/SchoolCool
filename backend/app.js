@@ -13,6 +13,8 @@ configDotenv();
 // Database Connection
 dbConfig();
 
+// Middleware
+
 const customMorganFormat = (tokens, req, res) => {
   const status = res.statusCode;
   const statusColor =
