@@ -1,0 +1,114 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "image": "https://example.com/images/john_doe.jpg",
+    "dob": "2005-05-15T00:00:00.000Z",
+    "gender": "Male",
+    "address": {
+      "street": "123 Main St",
+      "city": "Anytown",
+      "state": "Anystate",
+      "postalCode": "12345"
+    },
+    "email": "john.doe@example.com",
+    "phone": "123-456-7890",
+    "enrollmentStatus": "Enrolled",
+    "academicHistory": [
+      {
+        "course": "Mathematics",
+        "grade": "A",
+        "year": 2022
+      },
+      {
+        "course": "Science",
+        "grade": "B+",
+        "year": 2022
+      }
+    ]
+  },
+  {
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "image": "https://example.com/images/jane_smith.jpg",
+    "dob": "2006-08-22T00:00:00.000Z",
+    "gender": "Female",
+    "address": {
+      "street": "456 Oak St",
+      "city": "Othertown",
+      "state": "Otherstate",
+      "postalCode": "67890"
+    },
+    "email": "jane.smith@example.com",
+    "phone": "987-654-3210",
+    "enrollmentStatus": "Enrolled",
+    "academicHistory": [
+      {
+        "course": "History",
+        "grade": "A-",
+        "year": 2022
+      },
+      {
+        "course": "English",
+        "grade": "A",
+        "year": 2022
+      }
+    ]
+  },
+  {
+    "firstName": "Alex",
+    "lastName": "Johnson",
+    "image": "https://example.com/images/alex_johnson.jpg",
+    "dob": "2004-11-30T00:00:00.000Z",
+    "gender": "Other",
+    "address": {
+      "street": "789 Pine St",
+      "city": "Sometown",
+      "state": "Somestate",
+      "postalCode": "54321"
+    },
+    "email": "alex.johnson@example.com",
+    "phone": "456-789-0123",
+    "enrollmentStatus": "Completed",
+    "academicHistory": [
+      {
+        "course": "Biology",
+        "grade": "B",
+        "year": 2021
+      },
+      {
+        "course": "Chemistry",
+        "grade": "B+",
+        "year": 2021
+      }
+    ]
+  },
+  {
+    "firstName": "Emily",
+    "lastName": "Davis",
+    "image": "https://example.com/images/emily_davis.jpg",
+    "dob": "2007-02-14T00:00:00.000Z",
+    "gender": "Female",
+    "address": {
+      "street": "101 Maple St",
+      "city": "Newtown",
+      "state": "Newstate",
+      "postalCode": "98765"
+    },
+    "email": "emily.davis@example.com",
+    "phone": "321-654-0987",
+    "enrollmentStatus": "Withdrawn",
+    "academicHistory": [
+      {
+        "course": "Physics",
+        "grade": "A",
+        "year": 2023
+      },
+      {
+        "course": "Art",
+        "grade": "A-",
+        "year": 2023
+      }
+    ]
+  }
+]
