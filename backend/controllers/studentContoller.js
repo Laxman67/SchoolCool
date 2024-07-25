@@ -1,8 +1,9 @@
 import studentModel from '../models/studentModel.js';
 import validator from 'validator';
-import responseMessage from '../utility/ErrorMessage.js';
+
 
 export const addStudents = async (req, res) => {
+  const image = req.file.filename;
   const {
     firstName,
     lastName,
@@ -16,6 +17,7 @@ export const addStudents = async (req, res) => {
   } = req.body;
 
   if (
+    !image ||
     !firstName ||
     !lastName ||
     !gender ||

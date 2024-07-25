@@ -5,7 +5,7 @@ import cors from 'cors';
 import dbConfig from './config/dbConfig.js';
 
 import { configDotenv } from 'dotenv';
-import studentRouter from './routes/StudentRoutes.js';
+import studentRouter from './routes/studentRoutes.js';
 
 var app = express();
 configDotenv();
