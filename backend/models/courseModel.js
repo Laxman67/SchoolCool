@@ -1,7 +1,12 @@
-import { model, Schema } from 'mongoose';
+import { model, Schema, Types } from 'mongoose';
+import mongoose from 'mongoose';
+import AutoIncrementFactory from 'mongoose-sequence';
+const AutoIncrement = AutoIncrementFactory(mongoose);
 
 const courseSchema = new Schema({
+  courseId: { type: Number, unique: true, default: 101 },
   courseName: { type: String, required: true },
+  courseBanner: { type: String, required: true },
   description: String,
   classTimings: [
     {
@@ -21,13 +26,15 @@ const courseSchema = new Schema({
     },
   ],
   instructor: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Types.ObjectId,
     ref: 'Staff',
-    required: true,
+    default: null,
   },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
+
+courseSchema.plugin(AutoIncrement, { inc_field: 'courseId' });
 
 const courseModel = model('Course', courseSchema);
 

@@ -26,6 +26,9 @@ importers:
       mongoose:
         specifier: ^8.5.1
         version: 8.5.1
+      mongoose-sequence:
+        specifier: ^6.0.1
+        version: 6.0.1(mongoose@8.5.1)
       morgan:
         specifier: ^1.10.0
         version: 1.10.0
@@ -86,6 +89,9 @@ packages:
 
   array-flatten@1.1.1:
     resolution: {integrity: sha512-PCVAQswWemu6UdxsDFFX/+gVeYqKAod3D3UVm91jHwynguOwAvYPhx8nNlM++NqRcK6CxxpUafjmhIdKiHibqg==}
+
+  async@3.2.5:
+    resolution: {integrity: sha512-baNZyqaaLhyLVKm/DlvdW051MSgO6b8eVfIezl9E5PqWxFgzLm/wQntEW4zOytVburDEr0JlALEpdOFwvErLsg==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -375,6 +381,9 @@ packages:
     resolution: {integrity: sha512-C3iHfuGUXK2u8/ipq9LfjFfXFxAZMQJJq7vLS45r3D9Y2xQ/m4S8zaR4zMLFWh9AsNPXmcFfUDhTEO8UIC/V6Q==}
     engines: {node: '>=12.0.0'}
 
+  lodash@4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+
   make-dir@3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
     engines: {node: '>=8'}
@@ -462,6 +471,11 @@ packages:
         optional: true
       socks:
         optional: true
+
+  mongoose-sequence@6.0.1:
+    resolution: {integrity: sha512-uXnLCW9pu2V49Xw8BmdXdeRugd2mv+ntu3nT2Bbm33pNRmmvHE2GKA+8BASKoQt960McLX4VL78wkb492f6MoQ==}
+    peerDependencies:
+      mongoose: '>=5'
 
   mongoose@8.5.1:
     resolution: {integrity: sha512-OhVcwVl91A1G6+XpjDcpkGP7l7ikZkxa0DylX7NT/lcEqAjggzSdqDxb48A+xsDxqNAr0ntSJ1yiE3+KJTOd5Q==}
@@ -822,6 +836,8 @@ snapshots:
 
   array-flatten@1.1.1: {}
 
+  async@3.2.5: {}
+
   balanced-match@1.0.2: {}
 
   basic-auth@2.0.1:
@@ -1138,6 +1154,8 @@ snapshots:
 
   kareem@2.6.3: {}
 
+  lodash@4.17.21: {}
+
   make-dir@3.1.0:
     dependencies:
       semver: 6.3.1
@@ -1191,6 +1209,12 @@ snapshots:
       '@mongodb-js/saslprep': 1.1.8
       bson: 6.8.0
       mongodb-connection-string-url: 3.0.1
+
+  mongoose-sequence@6.0.1(mongoose@8.5.1):
+    dependencies:
+      async: 3.2.5
+      lodash: 4.17.21
+      mongoose: 8.5.1
 
   mongoose@8.5.1:
     dependencies:

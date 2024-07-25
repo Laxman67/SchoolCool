@@ -6,6 +6,7 @@ import dbConfig from './config/dbConfig.js';
 
 import { configDotenv } from 'dotenv';
 import studentRouter from './routes/studentRoutes.js';
+import courseRouter from './routes/courseRoute.js';
 
 var app = express();
 configDotenv();
@@ -43,13 +44,14 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-
-// 1.Student Route
-
-app.use('/api/v1/student', studentRouter);
-
 app.get('/api/v1', (req, res) => {
   res.send('hello, world!');
 });
+
+// 1.Student Route
+app.use('/api/v1/student', studentRouter);
+
+// 2.Course Route
+app.use('/api/v1/course', courseRouter);
 
 export default app;
