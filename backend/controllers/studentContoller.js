@@ -1,4 +1,5 @@
 import studentModel from '../models/studentModel.js';
+import fs from 'fs'
 import validator from 'validator';
 
 
@@ -100,9 +101,21 @@ export const deleteStudent = async (req, res) => {
 
   const result = await studentModel.findOne({ email });
   console.log(result);
+  console.log(result);
+  
 
   if (result) {
     await studentModel.findOneAndDelete({ email });
+    fs.unlink(`uploads/images/${result.image}`,(err)=>{
+      if (err) {
+        console.log(`Error => ${err}`)
+      }else{
+        console.log('path/file.txt was deleted')
+      }
+      
+      
+      
+    })
     return res
       .status(201)
       .json({ message: ' Student Deleted ', acknowlege: result });
