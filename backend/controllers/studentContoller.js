@@ -1,7 +1,6 @@
 import studentModel from '../models/studentModel.js';
-import fs from 'fs'
+import fs from 'fs';
 import validator from 'validator';
-
 
 // Add Student
 export const addStudents = async (req, res) => {
@@ -30,7 +29,9 @@ export const addStudents = async (req, res) => {
     !enrollmentStatus ||
     !academicHistory
   ) {
-    return res.status(404).json({ success: false, message: 'Provide all fields' });
+    return res
+      .status(404)
+      .json({ success: false, message: 'Provide all fields' });
   }
 
   // Check for Valid Email
@@ -100,22 +101,16 @@ export const deleteStudent = async (req, res) => {
   const { email } = req.body;
 
   const result = await studentModel.findOne({ email });
-  console.log(result);
-  console.log(result);
-  
 
   if (result) {
     await studentModel.findOneAndDelete({ email });
-    fs.unlink(`uploads/images/${result.image}`,(err)=>{
+    fs.unlink(`uploads/images/${result.image}`, (err) => {
       if (err) {
-        console.log(`Error => ${err}`)
-      }else{
-        console.log('path/file.txt was deleted')
+        console.log(`Error => ${err}`);
+      } else {
+        console.log('path/file.txt was deleted');
       }
-      
-      
-      
-    })
+    });
     return res
       .status(201)
       .json({ message: ' Student Deleted ', acknowlege: result });
