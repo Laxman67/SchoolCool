@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 import AutoIncrementFactory from 'mongoose-sequence';
 const AutoIncrement = AutoIncrementFactory(mongoose);
 
-
 const courseSchema = new Schema({
   courseId: { type: Number, unique: true, default: 101 },
   courseName: { type: String, required: true },

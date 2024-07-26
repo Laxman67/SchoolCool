@@ -5,7 +5,7 @@ import {
   addCourse,
   deleteCourse,
   updateCourse,
-  getCourseById
+  getCourseById,
 } from '../controllers/courseContoller.js';
 
 // Configure the image storage engine
@@ -27,9 +27,8 @@ const courseRouter = express.Router();
 // 1. Add course
 courseRouter.post('/', upload.single('courseBanner'), addCourse);
 
-
 // 2. List All course
-courseRouter.get('/' , allCourse);
+courseRouter.get('/', allCourse);
 // 2.1 get  course by id
 courseRouter.get('/:courseId', getCourseById);
 

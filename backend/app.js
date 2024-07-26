@@ -10,7 +10,6 @@ import courseRouter from './routes/courseRoute.js';
 var app = express();
 configDotenv();
 
-
 // Middleware
 
 const customMorganFormat = (tokens, req, res) => {
