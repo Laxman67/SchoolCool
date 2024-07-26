@@ -1,6 +1,13 @@
 import courseModel from '../models/courseModel.js';
 import fs from 'fs';
 
+// *******************************Utility Fucntion**********************
+const getCourseId = async (courseId)=>{
+  let course = await courseModel.findOne({courseId})
+  return  course;
+}
+// *******************************Utility Fucntion**********************
+
 // Add Course
 export const addCourse = async (req, res) => {
   const courseBanner = req.file ? req.file.filename : null;
@@ -48,6 +55,7 @@ export const addCourse = async (req, res) => {
 };
 
 export const allCourse = async (req, res) => {
+  console.log("allCourse Conroller");
   try {
     const courses = await courseModel.find({});
     if (courses.length > 0) {
@@ -69,6 +77,25 @@ export const allCourse = async (req, res) => {
     });
   }
 };
+
+
+export const getCourseById = async (req, res) => {
+  const courseId = req.params.courseId;
+
+  try {
+    // const course = await courseModel.findOne({courseId}); // OR This can be Implement but we've to look for efficiency
+    const course = await getCourseId(courseId) 
+
+    if (!course) {
+      return res.status(404).json({ message: 'Course not found' });
+    }
+
+    res.status(200).json(course);
+  } catch (error) {
+    res.status(500).json({ message: 'Server error',error });
+  }
+};
+
 
 export const deleteCourse = async (req, res) => {
   const id = req.body.id || req.query.id;
@@ -92,4 +119,6 @@ export const deleteCourse = async (req, res) => {
   return res.status(403).json({ message: 'Course Not Exists ' });
 };
 
-export const updateCourse = async (req, res) => {};
+
+
+export const updateCourse = async (req, res) => { };

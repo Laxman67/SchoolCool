@@ -2,7 +2,6 @@ import express from 'express';
 import morgan from 'morgan';
 import chalk from 'chalk';
 import cors from 'cors';
-import dbConfig from './config/dbConfig.js';
 
 import { configDotenv } from 'dotenv';
 import studentRouter from './routes/studentRoutes.js';
@@ -11,8 +10,6 @@ import courseRouter from './routes/courseRoute.js';
 var app = express();
 configDotenv();
 
-// Database Connection
-dbConfig();
 
 // Middleware
 

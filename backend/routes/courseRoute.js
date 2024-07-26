@@ -5,6 +5,7 @@ import {
   addCourse,
   deleteCourse,
   updateCourse,
+  getCourseById
 } from '../controllers/courseContoller.js';
 
 // Configure the image storage engine
@@ -24,12 +25,17 @@ const courseRouter = express.Router();
 // Define the route for  courses
 
 // 1. Add course
-courseRouter.post('/add', upload.single('courseBanner'), addCourse);
+courseRouter.post('/', upload.single('courseBanner'), addCourse);
+
+
 // 2. List All course
-courseRouter.get('/list', allCourse);
+courseRouter.get('/' , allCourse);
+// 2.1 get  course by id
+courseRouter.get('/:courseId', getCourseById);
+
 // 3. Delete course
-courseRouter.delete('/delete', deleteCourse);
+courseRouter.delete('/:courseId', deleteCourse);
 // 4. Update course
-courseRouter.patch('/update/:id', updateCourse);
+courseRouter.patch('/:courseId', updateCourse);
 
 export default courseRouter;
