@@ -1,0 +1,105 @@
+SchoolCool/
+├── backend/
+│   ├── config/
+│   │   └── db.js  ✅               # MongoDB connection configuration
+│   ├── controllers/
+│   │   ├── authController.js     # Authentication-related logic
+│   │   ├── studentController.js  # Student management logic
+│   │   ├── staffController.js    # Staff management logic
+│   │   ├── scheduleController.js # Course scheduling logic
+│   │   ├── attendanceController.js # Attendance tracking logic
+│   │   ├── gradeController.js    # Grade management logic
+│   │   ├── parentController.js   # Parent portal logic
+│   │   ├── messageController.js  # Communication tools logic
+│   │   ├── resourceController.js # Resource management logic
+│   │   ├── reportController.js   # Dashboard and reporting logic
+│   ├── models/
+│   │   ├── userModel.js          # User schema (admin, teacher, student, parent)
+│   │   ├── studentModel.js   ✅      # Student schema
+│   │   ├── staffModel.js     ✅        # Staff schema
+│   │   ├── cousreModel.js    ✅      # Course schedule schema
+│   │   ├── attendanceModel.js✅    # Attendance schema
+│   │   ├── gradeModel.js         # Grade schema
+│   │   ├── messageModel.js       # Message schema
+│   │   ├── resourceModel.js  ✅    # Resource schema
+│   ├── routes/
+│   │   ├── authRoutes.js         # Authentication routes
+│   │   ├── studentRoutes.js      # Student management routes
+│   │   ├── staffRoutes.js        # Staff management routes
+│   │   ├── scheduleRoutes.js     # Course scheduling routes
+│   │   ├── attendanceRoutes.js   # Attendance tracking routes
+│   │   ├── gradeRoutes.js        # Grade management routes
+│   │   ├── parentRoutes.js       # Parent portal routes
+│   │   ├── messageRoutes.js      # Communication tools routes
+│   │   ├── resourceRoutes.js     # Resource management routes
+│   │   ├── reportRoutes.js       # Dashboard and reporting routes
+│   ├── middleware/
+│   │   ├── authMiddleware.js     # Authentication middleware
+│   │   └── errorMiddleware.js    # Error handling middleware
+│   ├── utils/
+│   │   └── utils.js              # Utility functions
+│   ├── .env             ✅                    # Environment variables
+│   ├── server.js        ✅              # Entry point for the backend server
+│   ├── package.json     ✅            # Backend dependencies and scripts
+│   ├── package-lock.json✅       # Lock file for npm dependencies
+├── frontend/
+│   ├── public/
+│   │   ├── index.html            # Main HTML file
+│   │   └── favicon.ico           # Favicon
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Auth/
+│   │   │   │   ├── Login.js      # Login component
+│   │   │   │   ├── Register.js   # Register component
+│   │   │   ├── Dashboard/
+│   │   │   │   ├── AdminDashboard.js # Admin dashboard component
+│   │   │   │   ├── TeacherDashboard.js # Teacher dashboard component
+│   │   │   │   ├── StudentDashboard.js # Student dashboard component
+│   │   │   │   ├── ParentDashboard.js  # Parent dashboard component
+│   │   │   ├── Students/
+│   │   │   │   ├── StudentList.js  # List of students component
+│   │   │   │   ├── StudentDetail.js # Student details component
+│   │   │   ├── Staff/
+│   │   │   │   ├── StaffList.js    # List of staff component
+│   │   │   │   ├── StaffDetail.js  # Staff details component
+│   │   │   ├── Courses/
+│   │   │   │   ├── CourseSchedule.js # Course schedule component
+│   │   │   ├── Attendance/
+│   │   │   │   ├── AttendanceRecord.js # Attendance record component
+│   │   │   ├── Grades/
+│   │   │   │   ├── GradeList.js    # List of grades component
+│   │   │   ├── Messages/
+│   │   │   │   ├── MessageList.js  # List of messages component
+│   │   │   ├── Resources/
+│   │   │   │   ├── ResourceList.js # List of resources component
+│   │   │   ├── Reports/
+│   │   │   │   ├── ReportList.js   # List of reports component
+│   │   │   ├── Common/
+│   │   │   │   ├── Header.js       # Common header component
+│   │   │   │   ├── Sidebar.js      # Common sidebar component
+│   │   │   │   ├── Footer.js       # Common footer component
+│   │   ├── pages/
+│   │   │   ├── HomePage.js        # Home page
+│   │   │   ├── AboutPage.js       # About page
+│   │   │   ├── ContactPage.js     # Contact page
+│   │   ├── services/
+│   │   │   ├── authService.js     # Service for authentication API calls
+│   │   │   ├── studentService.js  # Service for student API calls
+│   │   │   ├── staffService.js    # Service for staff API calls
+│   │   │   ├── scheduleService.js # Service for schedule API calls
+│   │   │   ├── attendanceService.js # Service for attendance API calls
+│   │   │   ├── gradeService.js    # Service for grade API calls
+│   │   │   ├── parentService.js   # Service for parent API calls
+│   │   │   ├── messageService.js  # Service for message API calls
+│   │   │   ├── resourceService.js # Service for resource API calls
+│   │   │   ├── reportService.js   # Service for report API calls
+│   │   ├── App.js                 # Main React component
+│   │   ├── index.js               # Entry point for the React app
+│   │   ├── App.css                # Global styles
+│   │   ├── index.css              # Global styles
+│   ├── .env                       # Environment variables for the frontend
+│   ├── package.json               # Frontend dependencies and scripts
+│   ├── package-lock.json          # Lock file for npm dependencies
+├── .gitignore                     # Files to ignore in git
+├── README.md                      # Project overview and setup instructions
+└── package.json                   # Root level dependencies (optional)

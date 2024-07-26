@@ -2,9 +2,9 @@ import courseModel from '../models/courseModel.js';
 import fs from 'fs';
 
 // *******************************Utility Fucntion**********************
-const getCourseId = async (courseId)=>{
-  let course = await courseModel.findOne({courseId})
-  return  course;
+const getCourseId = async (courseId) => {
+  let course = await courseModel.findOne({ courseId })
+  return course;
 }
 // *******************************Utility Fucntion**********************
 
@@ -84,7 +84,7 @@ export const getCourseById = async (req, res) => {
 
   try {
     // const course = await courseModel.findOne({courseId}); // OR This can be Implement but we've to look for efficiency
-    const course = await getCourseId(courseId) 
+    const course = await getCourseId(courseId)
 
     if (!course) {
       return res.status(404).json({ message: 'Course not found' });
@@ -92,7 +92,7 @@ export const getCourseById = async (req, res) => {
 
     res.status(200).json(course);
   } catch (error) {
-    res.status(500).json({ message: 'Server error',error });
+    res.status(500).json({ message: 'Server error', error });
   }
 };
 
@@ -121,4 +121,21 @@ export const deleteCourse = async (req, res) => {
 
 
 
-export const updateCourse = async (req, res) => { };
+export const updateCourse = async (req, res) => {
+  const courseId = req.params.courseId;
+  const toUpdate = req.body
+
+  try {
+    const course = await getCourseId(courseId)
+
+    let updateQuery = { $set: toUpdate }; // Define Query to Perform
+
+    let student = await studentModel.findByIdAndUpdate(courseId, updateQuery, {
+      new: true,
+    });
+
+  } catch (error) {
+
+  }
+
+};
