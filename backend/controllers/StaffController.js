@@ -1,5 +1,4 @@
 import staffModel from '../models/staffModel.js';
-import studentModel from '../models/studentModel.js';
 import validator from 'validator';
 import fs from 'fs';
 import isEmail from 'validator/lib/isEmail.js';
@@ -37,7 +36,7 @@ export const addStaff = async (req, res) => {
     });
   }
   // Check for Email validation
-  if (!isEmail(email)) {
+  if (!validator.isEmail(email)) {
     return res.status(403).json({
       success: false,
       message: 'Valid Email id reqired',
@@ -84,26 +83,93 @@ export const addStaff = async (req, res) => {
 
 // 2.  It will return all staff
 export const allStaff = async (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: 'All staff',
-  });
+
+  try {
+    const staffs = await staffModel.find()
+    console.log(staffs);
+    if (!staffs.length > 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'Staff Not Found',
+        errorMsg: error,
+      });
+    }
+
+    // Return if found
+    return res.status(200).json({
+      success: true,
+      message: 'Staff Found !',
+      data: staffs
+    });
+
+
+  } catch (error) {
+    return res.status(404).json({
+      success: false,
+      message: 'Error !',
+      error: error
+    });
+  }
+
 };
 
 // 3. Get Staff by Id
 export const getStaffById = async (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: 'get staff by id ',
-  });
+  const { staffId } = req.params
+
+  try {
+    const staff = await staffModel.findOne({ staffId })
+    if (!staff) {
+      return res.status(404).json({
+        success: false,
+        message: 'Not Recors with this id Found ',
+
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: 'Staff Founded ',
+      data: staff
+    });
+  } catch (error) {
+    return res.status(404).json({
+      success: false,
+      message: 'Error Occured',
+      errorMsg: error
+
+    });
+  }
+
+
 };
 
 // 4. Delete staff by id
 export const deleteStaff = async (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: 'Delete Staff',
-  });
+  const { staffId } = req.params
+
+  try {
+    const staff = await staffModel.findOne({ staffId })
+    if (!staff) {
+      return res.status(404).json({
+        success: false,
+        message: 'Not Found ',
+      });
+    }
+
+    let response = await staffModel.deleteOne({ staffId })
+    res.status(200).json({
+      success: true,
+      message: 'Deleted',
+      data: response
+    });
+  } catch (error) {
+    return res.status(404).json({
+      success: false,
+      message: 'Error Occured',
+    });
+  }
+
 };
 
 // 5. Updat Staff by id

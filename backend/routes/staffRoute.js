@@ -23,8 +23,8 @@ const upload = multer({ storage: storage });
 // Routes
 staffRouter.post('/', upload.single('image'), addStaff);
 staffRouter.get('/', allStaff);
-staffRouter.get('/:id', getStaffById);
-staffRouter.delete('/:id', deleteStaff);
-staffRouter.patch('/:id', updateStaff);
+staffRouter.get('/:staffId', getStaffById);
+staffRouter.delete('/:staffId', deleteStaff);
+staffRouter.patch('/:staffId', updateStaff);
 
 export default staffRouter;
