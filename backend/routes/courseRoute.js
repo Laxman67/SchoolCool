@@ -29,7 +29,7 @@ courseRouter.post('/', upload.single('courseBanner'), addCourse);
 
 
 // 2. List All course
-courseRouter.get('/' , allCourse);
+courseRouter.get('/', allCourse);
 // 2.1 get  course by id
 courseRouter.get('/:courseId', getCourseById);
 
