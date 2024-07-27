@@ -97,6 +97,32 @@ export const allStudents = async (req, res) => {
     Students: result,
   });
 };
+
+export const getById = async (req, res) => {
+  const { studentId } = req.params;
+
+  try {
+    let student = await studentModel.findOne({ studentId });
+
+    if (!student) {
+      return res
+        .status(404)
+        .json({ success: false, message: 'Student Not Found !' });
+    }
+
+    res.status(201).json({
+      success: true,
+      message: 'Student Found successfully',
+      data: student,
+    });
+  } catch (err) {
+    return res.status(201).json({
+      success: false,
+      message: 'Error Occured',
+      errorMsg: err,
+    });
+  }
+};
 export const deleteStudent = async (req, res) => {
   const { email } = req.body;
 

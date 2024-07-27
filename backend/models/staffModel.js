@@ -1,7 +1,12 @@
-import { model, Schema } from 'mongoose';
+import mongoose from 'mongoose';
+import AutoIncrementFactory from 'mongoose-sequence';
 
-const staffSchema = new Schema({
+const AutoIncrement = AutoIncrementFactory(mongoose);
+
+const staffSchema = new mongoose.Schema({
+  staffId: { type: Number, unique: true },
   firstName: { type: String, required: true },
+  image: { type: String, required: true },
   lastName: { type: String, required: true },
   dob: { type: Date, required: true },
   gender: { type: String, enum: ['Male', 'Female', 'Other'], required: true },
@@ -33,6 +38,10 @@ const staffSchema = new Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-const staffModel = model('Staff', staffSchema);
+// Add auto-increment plugin to the schema
+staffSchema.plugin(AutoIncrement, { inc_field: 'staffId' });
+
+// Create and export the model
+const staffModel = mongoose.model('Staff', staffSchema);
 
 export default staffModel;

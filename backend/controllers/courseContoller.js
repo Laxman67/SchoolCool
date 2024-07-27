@@ -3,9 +3,9 @@ import fs from 'fs';
 
 // *******************************Utility Fucntion**********************
 const getCourseId = async (courseId) => {
-  let course = await courseModel.findOne({ courseId })
+  let course = await courseModel.findOne({ courseId });
   return course;
-}
+};
 // *******************************Utility Fucntion**********************
 
 // Add Course
@@ -55,7 +55,7 @@ export const addCourse = async (req, res) => {
 };
 
 export const allCourse = async (req, res) => {
-  console.log("allCourse Conroller");
+  console.log('allCourse Conroller');
   try {
     const courses = await courseModel.find({});
     if (courses.length > 0) {
@@ -78,13 +78,12 @@ export const allCourse = async (req, res) => {
   }
 };
 
-
 export const getCourseById = async (req, res) => {
   const courseId = req.params.courseId;
 
   try {
     // const course = await courseModel.findOne({courseId}); // OR This can be Implement but we've to look for efficiency
-    const course = await getCourseId(courseId)
+    const course = await getCourseId(courseId);
 
     if (!course) {
       return res.status(404).json({ message: 'Course not found' });
@@ -96,14 +95,14 @@ export const getCourseById = async (req, res) => {
   }
 };
 
-
 export const deleteCourse = async (req, res) => {
-  const id = req.body.id || req.query.id;
+  const courseId = req.params.courseId;
 
-  const result = await courseModel.findOne({ _id: id });
+  const result = await getCourseId(courseId);
 
   if (result) {
-    await courseModel.findOneAndDelete({ _id: id });
+    await courseModel.findOneAndDelete({ courseId });
+
     fs.unlink(`uploads/courses/${result.courseBanner}`, (err) => {
       if (err) {
         console.log(`Error => ${err}`);
@@ -119,23 +118,29 @@ export const deleteCourse = async (req, res) => {
   return res.status(403).json({ message: 'Course Not Exists ' });
 };
 
-
-
 export const updateCourse = async (req, res) => {
   const courseId = req.params.courseId;
-  const toUpdate = req.body
+  const toUpdate = req.body;
 
   try {
-    const course = await getCourseId(courseId)
+    const filter = { courseId: courseId.toString() };
 
     let updateQuery = { $set: toUpdate }; // Define Query to Perform
 
-    let student = await studentModel.findByIdAndUpdate(courseId, updateQuery, {
+    let course = await courseModel.findOneAndUpdate(filter, updateQuery, {
       new: true,
     });
 
-  } catch (error) {
+    if (!course) {
+      res.status(404).json({ success: false, message: 'Course Not Found !' });
+    }
 
+    return res
+      .status(201)
+      .json({ success: true, message: 'Course updated successfully' });
+  } catch (err) {
+    return res
+      .status(404)
+      .json({ success: false, message: 'Error Occured', error: err });
   }
-
 };

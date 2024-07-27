@@ -6,10 +6,10 @@ import cors from 'cors';
 import { configDotenv } from 'dotenv';
 import studentRouter from './routes/studentRoutes.js';
 import courseRouter from './routes/courseRoute.js';
+import staffRouter from './routes/staffRoute.js';
 
 var app = express();
 configDotenv();
-
 
 // Middleware
 
@@ -50,5 +50,8 @@ app.use('/api/v1/student', studentRouter);
 
 // 2.Course Route
 app.use('/api/v1/course', courseRouter);
+
+// 3. Staff Route
+app.use('/api/v1/staff', staffRouter);
 
 export default app;

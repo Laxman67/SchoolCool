@@ -9,14 +9,13 @@ const storage = multer.diskStorage({
   },
 });
 
-
-
 const upload = multer({ storage: storage });
 
 import {
   addStudents,
   allStudents,
   deleteStudent,
+  getById,
   updateStudent,
 } from '../controllers/studentContoller.js';
 
@@ -24,14 +23,16 @@ const studentRouter = express.Router();
 
 // *****CRUD Operation ********
 
-// Define the route for adding Student with image 
-// 1. Add Student 
+// Define the route for adding Student with image
+// 1. Add Student
 studentRouter.post('/add', upload.single('image'), addStudents);
-// 2. List All Student 
+// 2. List All Student
 studentRouter.get('/list', allStudents);
-// 3. Delete Student 
+// 3. Delete Student
 studentRouter.delete('/delete', deleteStudent);
-// 4. Update Student 
+// 4. Update Student
 studentRouter.patch('/update/:id', updateStudent);
+// 5 . get by id
+studentRouter.get('/:studentId', getById);
 
 export default studentRouter;
