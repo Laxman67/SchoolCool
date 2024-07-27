@@ -1,12 +1,10 @@
 import mongoose from 'mongoose';
-import { Schema, Types, model } from 'mongoose';
 import AutoIncrementFactory from 'mongoose-sequence';
 
 const AutoIncrement = AutoIncrementFactory(mongoose);
 
-const staffSchema = new Schema({
-  tempStaffId: { type: Number, unique: true, default: 1 }, // Temporary numeric field for auto-increment
-  staffId: { type: String, unique: true },
+const staffSchema = new mongoose.Schema({
+  staffId: { type: Number, unique: true },
   firstName: { type: String, required: true },
   image: { type: String, required: true },
   lastName: { type: String, required: true },
@@ -40,17 +38,10 @@ const staffSchema = new Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-// Apply the auto-increment plugin to the tempStaffId field
-staffSchema.plugin(AutoIncrement, { inc_field: 'tempStaffId' });
+// Add auto-increment plugin to the schema
+staffSchema.plugin(AutoIncrement, { inc_field: 'staffId' });
 
-// Pre-save middleware to format the staffId
-staffSchema.pre('save', function (next) {
-  if (this.isNew) {
-    this.staffId = `SID_${String(this.tempStaffId).padStart(3, '0')}`;
-  }
-  next();
-});
-
-const staffModel = model('Staff', staffSchema);
+// Create and export the model
+const staffModel = mongoose.model('Staff', staffSchema);
 
 export default staffModel;
