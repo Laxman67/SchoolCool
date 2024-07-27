@@ -70,7 +70,7 @@ export const addStaff = async (req, res) => {
     res.status(200).json({
       success: true,
       message: 'Staff Added Success',
-      newStaff,
+      data: newStaff,
     });
   } catch (error) {
     res.status(404).json({
@@ -83,15 +83,12 @@ export const addStaff = async (req, res) => {
 
 // 2.  It will return all staff
 export const allStaff = async (req, res) => {
-
   try {
-    const staffs = await staffModel.find()
-    console.log(staffs);
+    const staffs = await staffModel.find();
     if (!staffs.length > 0) {
       return res.status(404).json({
         success: false,
-        message: 'Staff Not Found',
-        errorMsg: error,
+        message: ' No Staff  Found',
       });
     }
 
@@ -99,57 +96,50 @@ export const allStaff = async (req, res) => {
     return res.status(200).json({
       success: true,
       message: 'Staff Found !',
-      data: staffs
+      data: staffs,
     });
-
-
   } catch (error) {
     return res.status(404).json({
       success: false,
       message: 'Error !',
-      error: error
+      error: error,
     });
   }
-
 };
 
 // 3. Get Staff by Id
 export const getStaffById = async (req, res) => {
-  const { staffId } = req.params
+  const { staffId } = req.params;
 
   try {
-    const staff = await staffModel.findOne({ staffId })
+    const staff = await staffModel.findOne({ staffId });
     if (!staff) {
       return res.status(404).json({
         success: false,
         message: 'Not Recors with this id Found ',
-
       });
     }
 
     res.status(200).json({
       success: true,
       message: 'Staff Founded ',
-      data: staff
+      data: staff,
     });
   } catch (error) {
     return res.status(404).json({
       success: false,
       message: 'Error Occured',
-      errorMsg: error
-
+      errorMsg: error,
     });
   }
-
-
 };
 
 // 4. Delete staff by id
 export const deleteStaff = async (req, res) => {
-  const { staffId } = req.params
+  const { staffId } = req.params;
 
   try {
-    const staff = await staffModel.findOne({ staffId })
+    const staff = await staffModel.findOne({ staffId });
     if (!staff) {
       return res.status(404).json({
         success: false,
@@ -157,11 +147,11 @@ export const deleteStaff = async (req, res) => {
       });
     }
 
-    let response = await staffModel.deleteOne({ staffId })
+    let response = await staffModel.deleteOne({ staffId });
     res.status(200).json({
       success: true,
       message: 'Deleted',
-      data: response
+      data: response,
     });
   } catch (error) {
     return res.status(404).json({
@@ -169,13 +159,38 @@ export const deleteStaff = async (req, res) => {
       message: 'Error Occured',
     });
   }
-
 };
 
 // 5. Updat Staff by id
 export const updateStaff = async (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: 'Update Staff',
-  });
+  const { staffId } = req.params;
+  const toUpdate = req.body;
+
+  try {
+    const filter = { staffId: staffId };
+
+    let updateQuery = { $set: toUpdate }; // Define Query to Perform
+
+    let staff = await staffModel.findOneAndUpdate(filter, updateQuery, {
+      new: true,
+    });
+
+    if (!staff) {
+      return res.status(404).json({
+        success: false,
+        message: 'No Staff Found with this staffId ',
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: 'Updated Staff',
+      data: staff,
+    });
+  } catch (error) {
+    return res.status(404).json({
+      success: false,
+      message: 'Error Occured',
+      errorMsg: error,
+    });
+  }
 };

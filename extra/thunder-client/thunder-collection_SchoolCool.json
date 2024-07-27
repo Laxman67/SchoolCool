@@ -1,0 +1,396 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "SchoolCool",
+    "collectionId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+    "dateExported": "2024-07-27T16:54:34.461Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "a1fc1fc0-8b07-4eeb-83be-cb7988d59bc6",
+            "name": "Staff",
+            "containerId": "",
+            "created": "2024-07-26T18:08:37.374Z",
+            "sortNum": 5000
+        },
+        {
+            "_id": "445e90e8-492d-4eec-a789-1bc054c302f4",
+            "name": "Student",
+            "containerId": "",
+            "created": "2024-07-25T17:49:09.771Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "4c916c0d-5716-4c00-95f0-b3faba412a93",
+            "name": "Courses",
+            "containerId": "",
+            "created": "2024-07-25T17:49:25.041Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "9fa891c0-ab9a-45f5-9b6f-b66bff974aed",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "445e90e8-492d-4eec-a789-1bc054c302f4",
+            "name": "Get/",
+            "url": "/student/list",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-07-24T16:15:33.804Z",
+            "modified": "2024-07-26T17:12:43.800Z",
+            "headers": []
+        },
+        {
+            "_id": "5753fc3d-8f75-4576-bfa6-7d0b8e30ff34",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "445e90e8-492d-4eec-a789-1bc054c302f4",
+            "name": "Add Student",
+            "url": "/student/add",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-07-24T16:57:00.265Z",
+            "modified": "2024-07-26T17:20:48.121Z",
+            "headers": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "firstName",
+                        "value": "Jinder "
+                    },
+                    {
+                        "name": "lastName",
+                        "value": "Pal"
+                    },
+                    {
+                        "name": "dob",
+                        "value": "1985-02-10"
+                    },
+                    {
+                        "name": "gender",
+                        "value": "Male"
+                    },
+                    {
+                        "name": "address[street]",
+                        "value": "Mandi Road"
+                    },
+                    {
+                        "name": "email",
+                        "value": "jinderpal98@gmail.com"
+                    },
+                    {
+                        "name": "address[city]",
+                        "value": "Bijnor"
+                    },
+                    {
+                        "name": "address[state]",
+                        "value": "UP"
+                    },
+                    {
+                        "name": "address[postalCode]",
+                        "value": "251451"
+                    },
+                    {
+                        "name": "enrollmentStatus",
+                        "value": "Enrolled"
+                    },
+                    {
+                        "name": "academicHistory[course]",
+                        "value": "MBA"
+                    },
+                    {
+                        "name": "academicHistory[grade]",
+                        "value": "B+"
+                    },
+                    {
+                        "name": "year",
+                        "value": "2023"
+                    },
+                    {
+                        "name": "phone",
+                        "value": "45454545"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "c:\\Users\\laxma\\Downloads\\Pooja Pic.jpg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "16f071ef-2446-40f7-b285-1b29c51989ce",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "445e90e8-492d-4eec-a789-1bc054c302f4",
+            "name": "All Student",
+            "url": "/student/list",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-07-24T17:03:11.552Z",
+            "modified": "2024-07-24T17:03:19.341Z",
+            "headers": []
+        },
+        {
+            "_id": "53a4886b-d8b4-486a-b620-54fdaf68159b",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "445e90e8-492d-4eec-a789-1bc054c302f4",
+            "name": "Delete Student",
+            "url": "/student/delete",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-07-24T17:03:55.889Z",
+            "modified": "2024-07-25T17:02:33.287Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\"email\":\"nareshdev90@gmail.com\"}",
+                "form": []
+            }
+        },
+        {
+            "_id": "3b0eccb2-fecf-4e96-acfe-6809f564f728",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "445e90e8-492d-4eec-a789-1bc054c302f4",
+            "name": "update",
+            "url": "/student/update/66a13a9443d639df30edd385",
+            "method": "PATCH",
+            "sortNum": 50000,
+            "created": "2024-07-24T17:04:38.707Z",
+            "modified": "2024-07-24T18:49:06.489Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"laxmanhenricks94@gmail.com\",\n  \"phone\": \"7814192670\",\n  \"enrollmentStatus\":\"Completed\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "65a70c67-fe87-4d8b-a09d-88faafb1c284",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "4c916c0d-5716-4c00-95f0-b3faba412a93",
+            "name": "Get Courses",
+            "url": "/course",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-07-25T17:49:31.447Z",
+            "modified": "2024-07-26T16:38:41.530Z",
+            "headers": []
+        },
+        {
+            "_id": "1fba5980-c197-4329-8f00-463cd28feb85",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "4c916c0d-5716-4c00-95f0-b3faba412a93",
+            "name": "add Course",
+            "url": "/course",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-07-25T18:07:25.198Z",
+            "modified": "2024-07-26T16:27:28.193Z",
+            "headers": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "courseName",
+                        "value": "Introduction to Computer Science"
+                    },
+                    {
+                        "name": "description",
+                        "value": "An introductory course to computer science concepts and programming"
+                    },
+                    {
+                        "name": "classTimings[0][day]",
+                        "value": "Monday"
+                    },
+                    {
+                        "name": "classTimings[0][startTime]",
+                        "value": "09:00"
+                    },
+                    {
+                        "name": "classTimings[0][endTime]",
+                        "value": "11:00"
+                    },
+                    {
+                        "name": "classTimings[1][day]",
+                        "value": "Wednesday"
+                    },
+                    {
+                        "name": "classTimings[1][startTime]",
+                        "value": "09:00"
+                    },
+                    {
+                        "name": "classTimings[1][endTime]",
+                        "value": "11:00"
+                    },
+                    {
+                        "name": "classTimings[2][day]",
+                        "value": "Friday"
+                    },
+                    {
+                        "name": "classTimings[2][startTime]",
+                        "value": "09:00"
+                    },
+                    {
+                        "name": "classTimings[2][endTime]",
+                        "value": "11:00"
+                    },
+                    {
+                        "name": "roomAssignments[0][room]",
+                        "value": "101"
+                    },
+                    {
+                        "name": "roomAssignments[0][building]]",
+                        "value": "Engineering Building"
+                    },
+                    {
+                        "name": "instructor",
+                        "value": "60c72b2f5f1b2c001c8e4d88"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "courseBanner",
+                        "value": "c:\\Users\\laxma\\Downloads\\income_PoojaMom.jpg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "f0610a51-210c-4b13-ba9b-0185c80e2f68",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "4c916c0d-5716-4c00-95f0-b3faba412a93",
+            "name": "Delete Course",
+            "url": "/course/104",
+            "method": "DELETE",
+            "sortNum": 80000,
+            "created": "2024-07-26T03:25:14.031Z",
+            "modified": "2024-07-26T17:02:37.370Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\":\"66a320019e8e977be85e4c02\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "b234abe7-1ad0-4fd6-86dc-f0bcd3ed1045",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "4c916c0d-5716-4c00-95f0-b3faba412a93",
+            "name": "get by id",
+            "url": "/course/104",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-07-26T16:28:25.031Z",
+            "modified": "2024-07-26T17:02:20.009Z",
+            "headers": []
+        },
+        {
+            "_id": "9859c748-c071-4e0c-9424-e8a75d4d440f",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "4c916c0d-5716-4c00-95f0-b3faba412a93",
+            "name": "Update Course",
+            "url": "/course/101",
+            "method": "PATCH",
+            "sortNum": 100000,
+            "created": "2024-07-26T16:30:45.785Z",
+            "modified": "2024-07-26T17:03:03.893Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"courseName\":\"Introduction to Programming  \",\n  \"description\":\"Learn the basics of Javascript Language\"\n  \n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "b47ff6ac-bee8-44a5-b83d-c2ed691dd856",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "445e90e8-492d-4eec-a789-1bc054c302f4",
+            "name": "get by id",
+            "url": "/student/2",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2024-07-26T17:23:26.475Z",
+            "modified": "2024-07-26T17:38:41.117Z",
+            "headers": []
+        },
+        {
+            "_id": "6527ced8-2d1d-41e6-9974-e0fc6dbd1743",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "a1fc1fc0-8b07-4eeb-83be-cb7988d59bc6",
+            "name": "All staff",
+            "url": "/staff",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2024-07-26T18:08:47.302Z",
+            "modified": "2024-07-27T16:35:41.572Z",
+            "headers": []
+        },
+        {
+            "_id": "36b5c19c-4b70-4619-a51d-0fd091f779ba",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "a1fc1fc0-8b07-4eeb-83be-cb7988d59bc6",
+            "name": "/:id",
+            "url": "/staff",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2024-07-26T18:26:05.584Z",
+            "modified": "2024-07-27T16:34:13.824Z",
+            "headers": []
+        },
+        {
+            "_id": "dfbc09f4-3e7d-4ae1-abe3-9f1f6be70a42",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "a1fc1fc0-8b07-4eeb-83be-cb7988d59bc6",
+            "name": "Add Staff",
+            "url": "/staff",
+            "method": "POST",
+            "sortNum": 140000,
+            "created": "2024-07-26T18:26:37.689Z",
+            "modified": "2024-07-27T03:45:02.007Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"firstName\": \"Jeet\",\n  \"lastName\": \"Singha\",\n  \"dob\": \"1998-05-25\",\n  \"gender\": \"Male\",\n  \"address\": {\n    \"street\": \"Green Park\",\n    \"city\": \"Bhatinda\",\n    \"state\": \"Punjab\",\n    \"postalCode\": \"123431\"\n  },\n  \"email\":\"iiii0@gmail.com\",\n  \"phone\":\"78154198\",\n  \"role\": \"Support Staff\",\n  \"employmentStatus\": \"Active\"\n  \n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "17e438c3-a5c1-4f08-b082-b02919e3df8d",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "a1fc1fc0-8b07-4eeb-83be-cb7988d59bc6",
+            "name": "Delete",
+            "url": "/staff/4",
+            "method": "DELETE",
+            "sortNum": 150000,
+            "created": "2024-07-26T18:26:55.416Z",
+            "modified": "2024-07-27T16:35:53.156Z",
+            "headers": []
+        },
+        {
+            "_id": "557e144c-bf21-4284-8166-1b5e790fc265",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "a1fc1fc0-8b07-4eeb-83be-cb7988d59bc6",
+            "name": "Update",
+            "url": "/staff/5",
+            "method": "PATCH",
+            "sortNum": 160000,
+            "created": "2024-07-26T18:27:11.889Z",
+            "modified": "2024-07-27T16:53:39.405Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n \"address.city\":\"Batala\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "http://localhost:3000/api/v1"
+        }
+    },
+    "ref": "5okIPLlsW_sVy7EpbdJrYmKOfLNm-kQtKprPFDy5RQRzSw_eQyUNzSgcKWjpPmx7JDSTp7kRv5S8UbCH1UscNg"
+}
