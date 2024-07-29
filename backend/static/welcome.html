@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Routes</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h1 {
+        color: #333;
+      }
+      .route-section {
+        margin-bottom: 30px;
+      }
+      .route-section h2 {
+        color: #555;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #ccc;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>API Routes</h1>
+
+    <div class="route-section">
+      <h2>Student</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GET</td>
+            <td>/api/v1/students</td>
+            <td>Get all students</td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/api/v1/students/:id</td>
+            <td>Get student by ID</td>
+          </tr>
+          <tr>
+            <td>POST</td>
+            <td>/api/v1/students</td>
+            <td>Create a new student</td>
+          </tr>
+          <tr>
+            <td>PATCH</td>
+            <td>/api/v1/students/:id</td>
+            <td>Update student by ID</td>
+          </tr>
+          <tr>
+            <td>DELETE</td>
+            <td>/api/v1/students/:id</td>
+            <td>Delete student by ID</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="route-section">
+      <h2>Staff</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GET</td>
+            <td>/api/v1/staff</td>
+            <td>Get all staff members</td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/api/v1/staff/:id</td>
+            <td>Get staff member by ID</td>
+          </tr>
+          <tr>
+            <td>POST</td>
+            <td>/api/v1/staff</td>
+            <td>Create a new staff member</td>
+          </tr>
+          <tr>
+            <td>PATCH</td>
+            <td>/api/v1/staff/:id</td>
+            <td>Update staff member by ID</td>
+          </tr>
+          <tr>
+            <td>DELETE</td>
+            <td>/api/v1/staff/:id</td>
+            <td>Delete staff member by ID</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="route-section">
+      <h2>Attendance</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GET</td>
+            <td>/api/v1/attendance</td>
+            <td>Get all attendance records</td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/api/v1/attendance/:id</td>
+            <td>Get attendance record by ID</td>
+          </tr>
+          <tr>
+            <td>POST</td>
+            <td>/api/v1/attendance</td>
+            <td>Create a new attendance record</td>
+          </tr>
+          <tr>
+            <td>PATCH</td>
+            <td>/api/v1/attendance/:id</td>
+            <td>Update attendance record by ID</td>
+          </tr>
+          <tr>
+            <td>DELETE</td>
+            <td>/api/v1/attendance/:id</td>
+            <td>Delete attendance record by ID</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="route-section">
+      <h2>Courses</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GET</td>
+            <td>/api/v1/courses</td>
+            <td>Get all courses</td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/api/v1/courses/:id</td>
+            <td>Get course by ID</td>
+          </tr>
+          <tr>
+            <td>POST</td>
+            <td>/api/v1/courses</td>
+            <td>Create a new course</td>
+          </tr>
+          <tr>
+            <td>PATCH</td>
+            <td>/api/v1/courses/:id</td>
+            <td>Update course by ID</td>
+          </tr>
+          <tr>
+            <td>DELETE</td>
+            <td>/api/v1/courses/:id</td>
+            <td>Delete course by ID</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="route-section">
+      <h2>Resources</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GET</td>
+            <td>/api/v1/resources</td>
+            <td>Get all resources</td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/api/v1/resources/:id</td>
+            <td>Get resource by ID</td>
+          </tr>
+          <tr>
+            <td>POST</td>
+            <td>/api/v1/resources</td>
+            <td>Create a new resource</td>
+          </tr>
+          <tr>
+            <td>PATCH</td>
+            <td>/api/v1/resources/:id</td>
+            <td>Update resource by ID</td>
+          </tr>
+          <tr>
+            <td>DELETE</td>
+            <td>/api/v1/resources/:id</td>
+            <td>Delete resource by ID</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

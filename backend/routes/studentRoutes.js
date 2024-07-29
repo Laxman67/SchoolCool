@@ -26,13 +26,13 @@ const studentRouter = express.Router();
 // Define the route for adding Student with image
 // 1. Add Student
 studentRouter.post('/add', upload.single('image'), addStudents);
-// 2. List All Student
-studentRouter.get('/list', allStudents);
-// 3. Delete Student
-studentRouter.delete('/delete', deleteStudent);
-// 4. Update Student
-studentRouter.patch('/update/:id', updateStudent);
 // 5 . get by id
-studentRouter.get('/:studentId', getById);
+studentRouter.get('/:id', getById);
+// 2. List All Student
+studentRouter.get('/', allStudents);
+// 3. Delete Student
+studentRouter.delete('/', deleteStudent);
+// 4. Update Student
+studentRouter.patch('/:id', updateStudent);
 
 export default studentRouter;

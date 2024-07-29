@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "SchoolCool",
     "collectionId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
-    "dateExported": "2024-07-28T17:11:49.507Z",
+    "dateExported": "2024-07-29T18:06:40.539Z",
     "version": "1.2",
     "folders": [
         {
@@ -32,6 +32,13 @@
             "containerId": "",
             "created": "2024-07-28T08:44:56.194Z",
             "sortNum": 30000
+        },
+        {
+            "_id": "f995f6ad-02f5-4a6c-bea9-325d9d5759dd",
+            "name": "Resource ",
+            "containerId": "",
+            "created": "2024-07-29T16:16:46.912Z",
+            "sortNum": 40000
         }
     ],
     "requests": [
@@ -324,6 +331,23 @@
             "headers": []
         },
         {
+            "_id": "f30fc56c-617b-40c9-8ddd-630f17736668",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "f995f6ad-02f5-4a6c-bea9-325d9d5759dd",
+            "name": "Add",
+            "url": "/resource",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2024-07-29T16:23:37.649Z",
+            "modified": "2024-07-29T17:16:07.620Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\"resourceName\": \"Japan Room C\",\n  \"type\": \"Room\",\n  \"availability\": \"In Use\",\n  \"location\": {\n   \n  }}",
+                "form": []
+            }
+        },
+        {
             "_id": "6527ced8-2d1d-41e6-9974-e0fc6dbd1743",
             "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
             "containerId": "a1fc1fc0-8b07-4eeb-83be-cb7988d59bc6",
@@ -419,7 +443,7 @@
             "method": "GET",
             "sortNum": 180000,
             "created": "2024-07-28T16:40:49.187Z",
-            "modified": "2024-07-28T16:41:07.694Z",
+            "modified": "2024-07-28T17:22:25.049Z",
             "headers": []
         },
         {
@@ -427,11 +451,11 @@
             "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
             "containerId": "7ac560f4-231a-482a-88ee-b06065093ae5",
             "name": "/:id",
-            "url": "/attendanceReport/66a6748acdbfdab428a58568",
+            "url": "/attendanceReport/66a67fd3f75514b76d31212f",
             "method": "GET",
             "sortNum": 190000,
             "created": "2024-07-28T16:45:07.749Z",
-            "modified": "2024-07-28T17:00:36.330Z",
+            "modified": "2024-07-28T17:30:00.423Z",
             "headers": []
         },
         {
@@ -439,12 +463,87 @@
             "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
             "containerId": "7ac560f4-231a-482a-88ee-b06065093ae5",
             "name": "delete",
-            "url": "/attendanceReport/66a67433b04fdbfae465d9c9",
+            "url": "/attendanceReport/66a67fd3f75514b76d31212f",
             "method": "DELETE",
             "sortNum": 200000,
             "created": "2024-07-28T17:05:28.683Z",
-            "modified": "2024-07-28T17:11:25.666Z",
+            "modified": "2024-07-29T15:58:17.132Z",
             "headers": []
+        },
+        {
+            "_id": "89bcdcc5-ad1d-4e2a-84d2-15e19cc82334",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "7ac560f4-231a-482a-88ee-b06065093ae5",
+            "name": "update",
+            "url": "/attendanceReport/66a7bb5a1432acdd85cf34b2",
+            "method": "PATCH",
+            "sortNum": 210000,
+            "created": "2024-07-28T17:27:23.933Z",
+            "modified": "2024-07-29T16:01:05.492Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"records\": [\n    {\n      \"studentId\": \"60c72bffffff8e6d8c7a9f1c\",\n      \"status\": \"Present\",\n      \"_id\": \"66a7bb5a1432acdd85cf34b3\"\n    }\n  ]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "14d815ed-cd82-4385-be3a-807d5db0b381",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "f995f6ad-02f5-4a6c-bea9-325d9d5759dd",
+            "name": "Get",
+            "url": "/resource",
+            "method": "GET",
+            "sortNum": 220000,
+            "created": "2024-07-29T16:16:57.488Z",
+            "modified": "2024-07-29T17:55:08.818Z",
+            "headers": []
+        },
+        {
+            "_id": "8eba3319-2084-45c1-9246-c794b9d5654d",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "f995f6ad-02f5-4a6c-bea9-325d9d5759dd",
+            "name": "get /:",
+            "url": "/resource/66a7d817e75052651789de0e",
+            "method": "GET",
+            "sortNum": 225000,
+            "created": "2024-07-29T16:30:45.322Z",
+            "modified": "2024-07-29T17:58:05.507Z",
+            "headers": []
+        },
+        {
+            "_id": "b15b0073-9114-43be-8f0a-c57dfa19eb27",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "f995f6ad-02f5-4a6c-bea9-325d9d5759dd",
+            "name": "delete",
+            "url": "/resource/66a7d817e75052651789de0e",
+            "method": "DELETE",
+            "sortNum": 250000,
+            "created": "2024-07-29T16:30:15.311Z",
+            "modified": "2024-07-29T17:58:55.153Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\"resourceName\": \"Japan Room C\",\n  \"type\": \"Room\",\n  \"availability\": \"In Use\",\n  \"location\": {\n   \n  }}",
+                "form": []
+            }
+        },
+        {
+            "_id": "cc9107fc-96ee-4e3b-a1a4-201bc11e0cd8",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "f995f6ad-02f5-4a6c-bea9-325d9d5759dd",
+            "name": "update",
+            "url": "/resource/66a7d817e75052651789de0e",
+            "method": "PATCH",
+            "sortNum": 270000,
+            "created": "2024-07-29T16:31:06.488Z",
+            "modified": "2024-07-29T17:58:29.358Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"resourceName\": \"Japanese Mastnai\"\n}",
+                "form": []
+            }
         }
     ],
     "settings": {
@@ -452,5 +551,5 @@
             "baseUrl": "http://localhost:3000/api/v1"
         }
     },
-    "ref": "5okIPLlsW_sVy7EpbdJrYqhEa_UF2o27KHy5v0mJbF5Vi0WQNE4kpROVQy5s-woaX56xy_JedkZROOwOCWrgTQ"
+    "ref": "5okIPLlsW_sVy7EpbdJrYgTx1CSvi94lT-FFmNH9OxBnLjAD1LTyZziGeHXWpEoIzsK6XS-gIpvV0p15ORsxXg"
 }

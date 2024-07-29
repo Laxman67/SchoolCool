@@ -94,15 +94,15 @@ export const allStudents = async (req, res) => {
   return res.status(200).json({
     success: true,
     message: 'Fetched Details',
-    Students: result,
+    result,
   });
 };
 
 export const getById = async (req, res) => {
-  const { studentId } = req.params;
+  const _id = req.params.id;
 
   try {
-    let student = await studentModel.findOne({ studentId });
+    let student = await studentModel.findOne({ _id });
 
     if (!student) {
       return res

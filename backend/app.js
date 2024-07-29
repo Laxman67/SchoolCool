@@ -3,12 +3,21 @@ import morgan from 'morgan';
 import chalk from 'chalk';
 import cors from 'cors';
 
+// to serve Static Page************
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// ********************************
 import { configDotenv } from 'dotenv';
 import studentRouter from './routes/studentRoutes.js';
 import courseRouter from './routes/courseRoute.js';
 import staffRouter from './routes/staffRoute.js';
 import attendanceRouter from './routes/attendanceRoute.js';
 import resourceRoute from './routes/resourceRoute.js';
+
+// Get the directory name of the current module file
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 var app = express();
 configDotenv();
@@ -42,9 +51,12 @@ app.use(morgan(customMorganFormat));
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from the "backend/static" directory
+app.use(express.static(path.join(__dirname, 'static')));
+
 // Routes
 app.get('/api/v1', (req, res) => {
-  res.send('hello, world!');
+  res.sendFile(path.join(__dirname, 'static', 'welcome.html'));
 });
 
 // 1.Student Route
