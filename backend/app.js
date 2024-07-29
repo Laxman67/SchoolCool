@@ -8,6 +8,7 @@ import studentRouter from './routes/studentRoutes.js';
 import courseRouter from './routes/courseRoute.js';
 import staffRouter from './routes/staffRoute.js';
 import attendanceRouter from './routes/attendanceRoute.js';
+import resourceRoute from './routes/resourceRoute.js';
 
 var app = express();
 configDotenv();
@@ -57,5 +58,9 @@ app.use('/api/v1/staff', staffRouter);
 
 // 4 .Attendance Route
 app.use('/api/v1/attendanceReport', attendanceRouter);
+
+// 5 .  Resource Route
+
+app.use('/api/v1/resource', resourceRoute);
 
 export default app;
