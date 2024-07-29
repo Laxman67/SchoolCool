@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "SchoolCool",
     "collectionId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
-    "dateExported": "2024-07-27T16:54:34.461Z",
+    "dateExported": "2024-07-28T17:11:49.507Z",
     "version": "1.2",
     "folders": [
         {
@@ -25,6 +25,13 @@
             "containerId": "",
             "created": "2024-07-25T17:49:25.041Z",
             "sortNum": 20000
+        },
+        {
+            "_id": "7ac560f4-231a-482a-88ee-b06065093ae5",
+            "name": "AttendanceReport",
+            "containerId": "",
+            "created": "2024-07-28T08:44:56.194Z",
+            "sortNum": 30000
         }
     ],
     "requests": [
@@ -333,11 +340,11 @@
             "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
             "containerId": "a1fc1fc0-8b07-4eeb-83be-cb7988d59bc6",
             "name": "/:id",
-            "url": "/staff",
+            "url": "/staff/9",
             "method": "GET",
             "sortNum": 130000,
             "created": "2024-07-26T18:26:05.584Z",
-            "modified": "2024-07-27T16:34:13.824Z",
+            "modified": "2024-07-27T21:20:18.772Z",
             "headers": []
         },
         {
@@ -349,11 +356,11 @@
             "method": "POST",
             "sortNum": 140000,
             "created": "2024-07-26T18:26:37.689Z",
-            "modified": "2024-07-27T03:45:02.007Z",
+            "modified": "2024-07-27T16:59:22.752Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"firstName\": \"Jeet\",\n  \"lastName\": \"Singha\",\n  \"dob\": \"1998-05-25\",\n  \"gender\": \"Male\",\n  \"address\": {\n    \"street\": \"Green Park\",\n    \"city\": \"Bhatinda\",\n    \"state\": \"Punjab\",\n    \"postalCode\": \"123431\"\n  },\n  \"email\":\"iiii0@gmail.com\",\n  \"phone\":\"78154198\",\n  \"role\": \"Support Staff\",\n  \"employmentStatus\": \"Active\"\n  \n}",
+                "raw": "{\n  \"firstName\": \"Rohit\",\n  \"lastName\": \"Kumar\",\n  \"dob\": \"1998-05-25\",\n  \"gender\": \"Male\",\n  \"address\": {\n    \"street\": \"Green Park\",\n    \"city\": \"Bhatinda\",\n    \"state\": \"Punjab\",\n    \"postalCode\": \"123431\"\n  },\n  \"email\":\"rohit@gmail.com\",\n  \"phone\":\"78154198\",\n  \"role\": \"Support Staff\",\n  \"employmentStatus\": \"Active\"\n  \n}",
                 "form": []
             }
         },
@@ -362,11 +369,11 @@
             "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
             "containerId": "a1fc1fc0-8b07-4eeb-83be-cb7988d59bc6",
             "name": "Delete",
-            "url": "/staff/4",
+            "url": "/staff/12",
             "method": "DELETE",
             "sortNum": 150000,
             "created": "2024-07-26T18:26:55.416Z",
-            "modified": "2024-07-27T16:35:53.156Z",
+            "modified": "2024-07-27T18:00:30.877Z",
             "headers": []
         },
         {
@@ -378,13 +385,66 @@
             "method": "PATCH",
             "sortNum": 160000,
             "created": "2024-07-26T18:27:11.889Z",
-            "modified": "2024-07-27T16:53:39.405Z",
+            "modified": "2024-07-27T17:11:32.882Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n \"address.city\":\"Batala\"\n}",
+                "raw": "{\n  \"firstName\": \"Rajinder\"\n}",
                 "form": []
             }
+        },
+        {
+            "_id": "1192bc8a-1c98-48bc-a5a2-e35dfc706b07",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "7ac560f4-231a-482a-88ee-b06065093ae5",
+            "name": "Add",
+            "url": "/attendanceReport",
+            "method": "POST",
+            "sortNum": 170000,
+            "created": "2024-07-28T08:45:01.849Z",
+            "modified": "2024-07-28T16:38:14.601Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"records\": [\n    {\n      \"studentId\": \"60c72b2f9b1e8e6d8c7a9f1c\",\n      \"status\": \"Present\"\n    },\n    {\n      \"studentId\": \"60c72b2f9b1e8e6d8c7a9f1d\",\n      \"status\": \"Absent\"\n    },\n    {\n      \"studentId\": \"60c72b2f9b1e8e6d8c7a9f1e\",\n      \"status\": \"Late\"\n    }\n  ],\n  \"createdBy\": \"60c72b2f9b1e8e6d8c7a9f1f\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "b9feaa11-dc19-4ba4-a4d8-4f22572232d1",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "7ac560f4-231a-482a-88ee-b06065093ae5",
+            "name": "get ",
+            "url": "/attendanceReport",
+            "method": "GET",
+            "sortNum": 180000,
+            "created": "2024-07-28T16:40:49.187Z",
+            "modified": "2024-07-28T16:41:07.694Z",
+            "headers": []
+        },
+        {
+            "_id": "62e24d81-7893-4685-a7f4-07133ac752dc",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "7ac560f4-231a-482a-88ee-b06065093ae5",
+            "name": "/:id",
+            "url": "/attendanceReport/66a6748acdbfdab428a58568",
+            "method": "GET",
+            "sortNum": 190000,
+            "created": "2024-07-28T16:45:07.749Z",
+            "modified": "2024-07-28T17:00:36.330Z",
+            "headers": []
+        },
+        {
+            "_id": "f8819d8b-45d3-45f3-9b0b-68a6b114bde9",
+            "colId": "bf6b14e0-2a0e-46c3-be58-a9627dbc196a",
+            "containerId": "7ac560f4-231a-482a-88ee-b06065093ae5",
+            "name": "delete",
+            "url": "/attendanceReport/66a67433b04fdbfae465d9c9",
+            "method": "DELETE",
+            "sortNum": 200000,
+            "created": "2024-07-28T17:05:28.683Z",
+            "modified": "2024-07-28T17:11:25.666Z",
+            "headers": []
         }
     ],
     "settings": {
@@ -392,5 +452,5 @@
             "baseUrl": "http://localhost:3000/api/v1"
         }
     },
-    "ref": "5okIPLlsW_sVy7EpbdJrYmKOfLNm-kQtKprPFDy5RQRzSw_eQyUNzSgcKWjpPmx7JDSTp7kRv5S8UbCH1UscNg"
+    "ref": "5okIPLlsW_sVy7EpbdJrYqhEa_UF2o27KHy5v0mJbF5Vi0WQNE4kpROVQy5s-woaX56xy_JedkZROOwOCWrgTQ"
 }

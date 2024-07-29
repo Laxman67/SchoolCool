@@ -7,6 +7,7 @@ import { configDotenv } from 'dotenv';
 import studentRouter from './routes/studentRoutes.js';
 import courseRouter from './routes/courseRoute.js';
 import staffRouter from './routes/staffRoute.js';
+import attendanceRouter from './routes/attendanceRoute.js';
 
 var app = express();
 configDotenv();
@@ -53,5 +54,8 @@ app.use('/api/v1/course', courseRouter);
 
 // 3. Staff Route
 app.use('/api/v1/staff', staffRouter);
+
+// 4 .Attendance Route
+app.use('/api/v1/attendanceReport', attendanceRouter);
 
 export default app;
