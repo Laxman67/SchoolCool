@@ -4,3 +4,7 @@
   margin: 0;
   padding: 0;
 }
+body {
+  background-color: rgb(243, 247, 247);
+  margin: 0px 2vw;
+}

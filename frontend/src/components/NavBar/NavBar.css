@@ -1,0 +1,48 @@
+.nav-conatiner {
+  z-index: 100;
+  color: gray;
+  font-weight: 600;
+  font-size: 16px;
+
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 1px;
+  background-color: rgb(243, 247, 247);
+}
+
+.nav-logo img {
+  width: 5.5vw;
+  border: 4px solid tomato;
+  border-radius: 50px;
+}
+
+.nav-links ul {
+  text-transform: capitalize;
+  display: flex;
+  gap: 5vw;
+  list-style-type: none;
+}
+.nav-links ul p {
+  color: #6f6f6f;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.nav-links ul :link {
+  text-decoration: none;
+}
+
+.active {
+  border-bottom: 3px solid tomato;
+}
+
+.login-signup-btn p {
+  padding: 7px 12px;
+  color: white;
+  background-color: tomato;
+  border-radius: 5px;
+  cursor: pointer;
+}

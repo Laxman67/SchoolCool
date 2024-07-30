@@ -1,0 +1,50 @@
+.feature-container {
+  margin-top: 70px;
+}
+.feature-title {
+  margin: 1vw auto;
+  width: 60vw;
+  text-align: center;
+}
+.feature-title h4 {
+  margin-bottom: 20px;
+  color: tomato;
+}
+.feature-title p {
+  font-weight: 400;
+  font-size: larger;
+}
+
+.features {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 2vw;
+  gap: 3vw;
+}
+
+.features {
+  padding: 5px;
+}
+
+.feature-item {
+  background-color: rgb(238, 238, 238);
+  border-radius: 10px;
+  padding: 1vw;
+  border-top: 5px solid tomato;
+  transition: 0.2s;
+  box-shadow: 3px 6px 5px rgb(187, 183, 183);
+  cursor: pointer;
+}
+.feature-item:hover {
+  transform: scale(1.05);
+}
+.feature-item h4 {
+  margin-bottom: 20px;
+  color: tomato;
+}
+.feature-item p {
+  margin-bottom: 20px;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+}
