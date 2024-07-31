@@ -1,0 +1,33 @@
+.footer-container {
+  border-left: 50vw;
+  padding-top: 2vw;
+  height: auto;
+  background-color: #031733;
+  border-radius: 10px;
+  color: #d5d9dd;
+  justify-content: center;
+  padding-bottom: 1vw;
+}
+hr {
+  background-color: #d5d9dd;
+  width: 70vw;
+  margin: 1vw auto;
+  margin-bottom: 1vw;
+}
+
+.footer-top {
+  width: 90vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-top ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-top ul li {
+  cursor: pointer;
+  list-style-type: none;
+  color: #d5d9dd;
+}

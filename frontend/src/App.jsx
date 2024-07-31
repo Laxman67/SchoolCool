@@ -3,6 +3,7 @@ import { useState } from 'react';
 import NavBar from './components/NavBar/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
+import Footer from './components/Footer/Footer';
 import About from './pages/About/About';
 import Gallery from './pages/Gallery/Gallery';
 import Login from './pages/Login/Login';
@@ -43,6 +44,7 @@ function App() {
           <Route path="/reports" element={<Reports />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </div>
     </>
   );

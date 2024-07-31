@@ -1,0 +1,22 @@
+.sidebar {
+  width: 20%;
+  background-color: beige;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+  padding: 5vw 3vw;
+}
+
+.sidebar-option {
+  display: flex;
+  padding: 5px;
+  background-color: aliceblue;
+  text-decoration: none;
+  color: black;
+}
+.sidebar-option p {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}

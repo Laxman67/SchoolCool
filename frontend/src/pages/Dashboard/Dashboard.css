@@ -1,0 +1,33 @@
+.sidebar-container {
+  display: flex;
+  justify-content: space-between;
+}
+.sidebar {
+  width: 25%;
+  background-color: beige;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+  padding: 5vw 4vw;
+}
+.sidebar-option {
+  padding: 6px 10px;
+  background-color: tomato;
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+}
+.sidebar-option p {
+  display: flex;
+  gap: 10px;
+}
+.view-panel {
+  background-color: beige;
+  width: 75vw;
+  border-left: 2px solid tomato;
+  padding: 2vw;
+}
+.sidebar-option {
+  cursor: pointer;
+}
