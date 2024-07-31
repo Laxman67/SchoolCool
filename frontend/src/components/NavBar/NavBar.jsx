@@ -24,15 +24,15 @@ const NavBar = ({ setShowLogin }) => {
             >
               <p>Home</p>
             </Link>
-            <Link
-              to="/contact"
+            <a
+              href="#contact"
               onClick={() => {
                 setMenu('contact');
               }}
               className={menu == 'contact' ? 'active' : ''}
             >
               <p>Contact</p>
-            </Link>
+            </a>
             <Link
               to="/about"
               onClick={() => {
