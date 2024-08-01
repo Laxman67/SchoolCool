@@ -1,5 +1,6 @@
 import Logo from '../assets/Logo.png';
 import BannerImage from '../assets/bannerImg.png';
+import ProfileImage from '../assets/ProfileImage.png';
 const features = [
   {
     id: 1,
@@ -54,6 +55,7 @@ const assets = {
   Logo,
   BannerImage,
   features,
+  ProfileImage,
 };
 
 export default assets;

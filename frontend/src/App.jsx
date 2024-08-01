@@ -32,7 +32,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={<Login setShowLogin={setShowLogin} />}
+          />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/students" element={<StudentManagement />} />
           <Route path="/staff" element={<StaffManagement />} />
