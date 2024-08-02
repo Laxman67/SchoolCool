@@ -44,3 +44,28 @@ form {
   color: white;
   background-color: tomato;
 }
+
+.error {
+  color: red;
+  text-decoration-style: wavy;
+}
+
+@media (max-width: 1050px) {
+  form {
+    flex-direction: column;
+    padding: 2vw;
+    align-items: center;
+    width: 100%;
+    margin: 1vw auto;
+  }
+  .basic-details {
+    border-right: 0px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 2vw;
+  }
+  .flex-col button {
+    align-self: center;
+    width: 100%;
+    font-size: 17px;
+  }
+}

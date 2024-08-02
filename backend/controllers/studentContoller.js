@@ -4,8 +4,6 @@ import validator from 'validator';
 
 // Add Student
 export const addStudents = async (req, res) => {
-  const image = req.file ? req.file.filename : null; // Ensure you handle cases where req.file might be undefined
-
   const {
     firstName,
     lastName,
@@ -16,6 +14,7 @@ export const addStudents = async (req, res) => {
     phone,
     enrollmentStatus,
     academicHistory,
+    image,
   } = req.body;
 
   if (
@@ -65,7 +64,6 @@ export const addStudents = async (req, res) => {
     academicHistory,
     image, // Include the image field
   });
-  console.log(newStudent);
 
   await newStudent
     .save()

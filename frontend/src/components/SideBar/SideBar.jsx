@@ -10,28 +10,22 @@ function SideBar() {
     <div>
       <div className="sidebar">
         <NavLink to="/find" className="sidebar-option">
-          <p>
-            <IoIosPersonAdd />
-            Find Student
-          </p>
+          <IoIosPersonAdd />
+          <p>Find Student</p>
         </NavLink>
         <NavLink to="/add" className="sidebar-option">
-          <p>
-            <BiSolidFileFind />
-            Find Student
-          </p>
+          <BiSolidFileFind />
+          <p>Find Student</p>
         </NavLink>
         <NavLink to="/delete" className="sidebar-option">
-          <p>
-            <TiUserDelete />
-            Delete Student
-          </p>
+          <TiUserDelete />
+          <p className="text">Delete Student</p>
         </NavLink>
         <NavLink to="/update" className="sidebar-option">
-          <p>
+          <div className="icon">
             <MdOutlineUpdate />
-            Update Student
-          </p>
+          </div>
+          <p className="text">Update Student</p>
         </NavLink>
       </div>
     </div>

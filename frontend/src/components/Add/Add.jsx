@@ -3,107 +3,123 @@ import { StudentContext } from '../../context/StudentContext';
 import './Add.css';
 import assets from '../../assets/assets';
 import axios from 'axios';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+//  3
+// Schema for Form Error Handling
+const schema = yup.object().shape({
+  firstName: yup
+    .string()
+    .min(5, 'First name must be at least 5 characters')
+    .max(10, 'First name must be at most 10 characters')
+    .required('First name is required'),
+  lastName: yup
+    .string()
+    .min(5, 'Last name must be at least 5 characters')
+    .max(10, 'Last name must be at most 10 characters')
+    .required('Last name is required'),
+  email: yup
+    .string()
+    .email('Invalid email format')
+    .required('Email is required'),
+  phone: yup.string().required('Phone number is required'),
+  dob: yup.date().required('Date of Birth is required'),
+  city: yup.string().required('City is required'),
+  postalCode: yup.string().required('Pincode is required'),
+  state: yup.string().required('State is required'),
+  street: yup.string().required('Street is required'),
+  course: yup.string().required('Course is required'),
+  year: yup.number().required('Year is required').positive().integer(),
+  enrollmentStatus: yup
+    .string()
+    .oneOf(['Completed', 'Withdrawn', 'Enrolled'], 'Invalid Parameter')
+    .required('Status is required'),
+  image: yup.mixed().required('Image is required'),
+});
 
 function Add() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({ resolver: yupResolver(schema) });
+
   const { BASE_URL } = useContext(StudentContext);
-  const [image, setImage] = useState(false);
-  const [data, setData] = useState({
-    address: {
-      street: '',
-      city: '',
-      state: '',
-      postalCode: '',
-    },
-    firstName: '',
-    lastName: '',
-    image: '',
-    dob: '',
-    gender: '',
-    email: '',
-    phone: '',
-    enrollmentStatus: '',
-    academicHistory: {
-      course: '',
-      grade: '',
-      year: '',
-    },
-  });
+  const [imageSrc, setImageSrc] = useState(false);
 
-  const onChangeHandler = (event) => {
-    const { name, value } = event.target;
+  const onSubmit = async (data) => {
+    const image = imageSrc.name;
+    const {
+      firstName,
+      lastName,
+      dob,
+      gender,
+      email,
+      phone,
+      street,
+      postalCode,
+      city,
+      state,
+      enrollmentStatus,
+      course,
+      year,
+      grade,
+    } = data;
 
-    // Handle nested address and academic history updates
-    if (name in data.address) {
-      setData((prevData) => ({
-        ...prevData,
-        address: {
-          ...prevData.address,
-          [name]: value,
-        },
-      }));
-    } else if (name in data.academicHistory) {
-      setData((prevData) => ({
-        ...prevData,
-        academicHistory: {
-          ...prevData.academicHistory,
-          [name]: value,
-        },
-      }));
-    } else {
-      setData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    }
-  };
+    let newData = {
+      firstName,
+      image,
+      lastName,
+      dob,
+      gender,
+      email,
+      phone,
+      address: { street, city, state, postalCode },
+      enrollmentStatus,
+      academicHistory: {
+        course,
+        grade,
+        year,
+      },
+    };
 
-  const onSubmitHandler = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append('firstName', data.firstName);
-    formData.append('lastName', data.lastName);
-    formData.append('dob', data.dob);
-    formData.append('gender', data.gender);
-    formData.append('email', data.email);
-    formData.append('phone', data.phone);
-    formData.append('image', image);
-    formData.append('address', JSON.stringify(data.address));
-    formData.append('academicHistory', JSON.stringify(data.academicHistory));
-    formData.append('enrollmentStatus', data.enrollmentStatus);
+    // Make Request
+    let response = await axios.post(`${BASE_URL}student/add`, newData);
+    console.log(response);
 
-    console.log('Submitting form data:', formData);
-
-    const response = await axios.post(`${BASE_URL}student/add`, formData);
-
-    if (response.data.success) {
-      setImage(false);
-      console.log(formData);
-    } else {
-      alert('Error');
-    }
+    reset();
+    setImageSrc(null);
   };
 
   return (
     <div className="form-container">
       <h3>Add Student</h3>
-      <form onSubmit={onSubmitHandler}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         {/* Basic Information */}
         <div className="basic-details">
           <div className="image flex-col">
             <label htmlFor="image">
               <img
-                src={image ? URL.createObjectURL(image) : assets.ProfileImage}
+                src={
+                  imageSrc ? URL.createObjectURL(imageSrc) : assets.ProfileImage
+                }
+                alt="Image"
               />
             </label>
             <input
-              onChange={(e) => {
-                setImage(e.target.files[0]);
-              }}
               type="file"
-              name="image"
               id="image"
+              accept="image/*"
+              {...register('image')}
               hidden
+              onChange={(e) => {
+                setImageSrc(e.target.files[0]);
+              }}
             />
+
+            {errors.image && <p className="error">{errors.image.message}</p>}
           </div>
           <div className="name flex-col">
             <h4 className="input-title">Basic Details</h4>
@@ -115,9 +131,11 @@ function Add() {
                 id="firstName"
                 required
                 placeholder="First Name"
-                onChange={onChangeHandler}
-                value={data.firstName}
+                {...register('firstName')}
               />
+              {errors.firstName && (
+                <p className="error">{errors.firstName.message}</p>
+              )}
             </div>
             <div>
               <label htmlFor="lastName">Last Name :</label>
@@ -127,9 +145,11 @@ function Add() {
                 id="lastName"
                 required
                 placeholder="Last Name"
-                onChange={onChangeHandler}
-                value={data.lastName}
+                {...register('lastName')}
               />
+              {errors.lastName && (
+                <p className="error">{errors.lastName.message}</p>
+              )}
             </div>
           </div>
           <div className="dob-gender flex-col">
@@ -140,9 +160,9 @@ function Add() {
                 name="dob"
                 id="dob"
                 required
-                onChange={onChangeHandler}
-                value={data.dob}
+                {...register('dob')}
               />
+              {errors.dob && <p className="error">{errors.dob.message}</p>}
             </div>
             <div>
               <label htmlFor="gender">Gender:</label>
@@ -150,12 +170,14 @@ function Add() {
                 name="gender"
                 id="gender"
                 required
-                onChange={onChangeHandler}
-                value={data.gender}
+                {...register('gender')}
               >
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
+              {errors.gender && (
+                <p className="error">{errors.gender.message}</p>
+              )}
             </div>
           </div>
           <div className="contact flex-col">
@@ -167,9 +189,9 @@ function Add() {
                 id="email"
                 placeholder="Email"
                 required
-                onChange={onChangeHandler}
-                value={data.email}
+                {...register('email')}
               />
+              {errors.email && <p className="error">{errors.email.message}</p>}
             </div>
             <div>
               <label htmlFor="phone">Phone:</label>
@@ -179,15 +201,15 @@ function Add() {
                 id="phone"
                 placeholder="Phone"
                 required
-                onChange={onChangeHandler}
-                value={data.phone}
+                {...register('phone')}
               />
+              {errors.phone && <p className="error">{errors.phone.message}</p>}
             </div>
           </div>
         </div>
 
         {/* Address and Academic History */}
-        <div className="address-details">
+        <div className="address-details flex-col">
           {/* Address */}
           <div className="flex-col">
             <h4 className="input-title">Address Details</h4>
@@ -198,9 +220,11 @@ function Add() {
                 name="street"
                 id="street"
                 required
-                onChange={onChangeHandler}
-                value={data.address.street}
+                {...register('street')}
               />
+              {errors.street && (
+                <p className="error">{errors.street.message}</p>
+              )}
             </div>
             <div>
               <label htmlFor="city">City:</label>
@@ -209,18 +233,13 @@ function Add() {
                 name="city"
                 id="city"
                 required
-                onChange={onChangeHandler}
-                value={data.address.city}
+                {...register('city')}
               />
+              {errors.city && <p className="error">{errors.city.message}</p>}
             </div>
             <div className="state">
               <label htmlFor="state">State:</label>
-              <select
-                name="state"
-                id="state"
-                onChange={onChangeHandler}
-                value={data.address.state}
-              >
+              <select name="state" id="state" {...register('state')}>
                 <option value="Punjab">Punjab</option>
                 <option value="Haryana">Haryana</option>
                 <option value="Uttar Pradesh">Uttar Pradesh</option>
@@ -229,6 +248,7 @@ function Add() {
                 <option value="Banglore">Banglore</option>
                 <option value="Delhi">Delhi</option>
               </select>
+              {errors.state && <p className="error">{errors.state.message}</p>}
             </div>
             <div>
               <label htmlFor="postalCode">PinCode:</label>
@@ -236,9 +256,11 @@ function Add() {
                 type="number"
                 name="postalCode"
                 id="postalCode"
-                onChange={onChangeHandler}
-                value={data.address.postalCode}
+                {...register('postalCode')}
               />
+              {errors.postalCode && (
+                <p className="error">{errors.postalCode.message}</p>
+              )}
             </div>
           </div>
           {/* Academic History */}
@@ -251,9 +273,11 @@ function Add() {
                 name="course"
                 required
                 placeholder="Course"
-                onChange={onChangeHandler}
-                value={data.academicHistory.course}
+                {...register('course')}
               />
+              {errors.course && (
+                <p className="error">{errors.course.message}</p>
+              )}
             </div>
             <div>
               <label htmlFor="grade">Grade:</label>
@@ -262,20 +286,20 @@ function Add() {
                 name="grade"
                 required
                 placeholder="A+"
-                onChange={onChangeHandler}
-                value={data.academicHistory.grade}
+                {...register('grade')}
               />
+              {errors.grade && <p className="error">{errors.grade.message}</p>}
             </div>
             <div>
               <label htmlFor="year">Year:</label>
               <input
-                type="text"
+                type="number"
                 name="year"
                 required
                 placeholder="Year of Completion"
-                onChange={onChangeHandler}
-                value={data.academicHistory.year}
+                {...register('year')}
               />
+              {errors.year && <p className="error">{errors.year.message}</p>}
             </div>
             <div>
               <label htmlFor="enrollmentStatus">Status:</label>
@@ -283,16 +307,18 @@ function Add() {
                 name="enrollmentStatus"
                 id="enrollmentStatus"
                 required
-                onChange={onChangeHandler}
-                value={data.enrollmentStatus}
+                {...register('enrollmentStatus')}
               >
                 <option value="Enrolled">Enrolled</option>
                 <option value="Withdrawn">Withdrawn</option>
                 <option value="Completed">Completed</option>
               </select>
+              {errors.enrollmentStatus && (
+                <p className="error">{errors.enrollmentStatus.message}</p>
+              )}
             </div>
           </div>
-          <div className="flex-col">
+          <div className="flex-col btn">
             {/* Submit */}
             <button type="submit">Add Student</button>
           </div>
