@@ -18,45 +18,57 @@ const componentMap = {
 
 function Dashboard() {
   const [view, setView] = useState('Find Student');
+  const [active, setActive] = useState('Find Student');
 
   const renderComponent = () => {
-    const Component = componentMap[view]; //Extracting value form componentMap
-    // If Component is true ? then return <component/>
+    const Component = componentMap[view]; // Extracting value from componentMap
+    // If Component is true ? then return <Component/>
     return Component ? <Component /> : null;
+  };
+
+  const handleSidebarClick = (viewName) => {
+    setView(viewName);
+    setActive(viewName);
   };
 
   return (
     <div className="sidebar-container">
       <div className="sidebar">
-        <div onClick={() => setView('Find Student')} className="sidebar-option">
-          <p>
-            <BiSolidFileFind />
-            Find Student
-          </p>
-        </div>
-        <div onClick={() => setView('Add Student')} className="sidebar-option">
-          <p>
-            <IoIosPersonAdd />
-            Add Student
-          </p>
+        <div
+          onClick={() => handleSidebarClick('Find Student')}
+          className={`sidebar-option ${
+            active === 'Find Student' ? 'active' : ''
+          }`}
+        >
+          <BiSolidFileFind className="icon" />
+          <p>Find Student</p>
         </div>
         <div
-          onClick={() => setView('Delete Student')}
-          className="sidebar-option"
+          onClick={() => handleSidebarClick('Add Student')}
+          className={`sidebar-option ${
+            active === 'Add Student' ? 'active' : ''
+          }`}
         >
-          <p>
-            <TiUserDelete />
-            Delete Student
-          </p>
+          <IoIosPersonAdd className="icon" />
+          <p>Add Student</p>
         </div>
         <div
-          onClick={() => setView('Update Student')}
-          className="sidebar-option"
+          onClick={() => handleSidebarClick('Delete Student')}
+          className={`sidebar-option ${
+            active === 'Delete Student' ? 'active' : ''
+          }`}
         >
-          <p>
-            <MdOutlineUpdate />
-            Update Student
-          </p>
+          <TiUserDelete className="icon" />
+          <p>Delete Student</p>
+        </div>
+        <div
+          onClick={() => handleSidebarClick('Update Student')}
+          className={`sidebar-option ${
+            active === 'Update Student' ? 'active' : ''
+          }`}
+        >
+          <MdOutlineUpdate className="icon" />
+          <p>Update Student</p>
         </div>
       </div>
       <div className="view-panel">{renderComponent()}</div>

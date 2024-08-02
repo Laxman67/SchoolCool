@@ -2,6 +2,19 @@
   display: flex;
   justify-content: space-between;
 }
+.sidebar .active {
+  color: white;
+  background-color: rgba(4, 119, 35, 0.745);
+}
+.sidebar-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+}
+.sidebar-option .icon {
+  font-size: 26px;
+}
 .sidebar {
   width: 25%;
   background-color: beige;
@@ -30,4 +43,29 @@
 }
 .sidebar-option {
   cursor: pointer;
+}
+
+@media (max-width: 1050px) {
+  .sidebar-container {
+    padding: 10px;
+    margin: 5px;
+  }
+
+  .sidebar-option .icon {
+    font-size: 30px;
+  }
+  .sidebar {
+    padding: 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 800px) {
+  .sidebar-option {
+    justify-content: center;
+    align-items: center;
+  }
+  .sidebar-option p {
+    display: none;
+  }
 }

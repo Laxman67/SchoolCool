@@ -11,7 +11,7 @@ function SideBar() {
       <div className="sidebar">
         <NavLink to="/find" className="sidebar-option">
           <IoIosPersonAdd />
-          <p>Find Student</p>
+          <p>Find </p>
         </NavLink>
         <NavLink to="/add" className="sidebar-option">
           <BiSolidFileFind />
