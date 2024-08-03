@@ -1,0 +1,12 @@
+form {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form button {
+  background-color: red;
+  width: 120px;
+  align-self: center;
+}
