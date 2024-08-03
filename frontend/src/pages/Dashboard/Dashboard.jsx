@@ -11,6 +11,7 @@ import Find from '../../components/Find/Find';
 
 const componentMap = {
   'Find Student': Find,
+  // 'All Student': All,
   'Add Student': Add,
   'Delete Student': Delete,
   'Update Student': Update,
