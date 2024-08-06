@@ -4,6 +4,7 @@ import { IoIosPersonAdd } from 'react-icons/io';
 import { TiUserDelete } from 'react-icons/ti';
 import { BiSolidFileFind } from 'react-icons/bi';
 import { MdOutlineUpdate } from 'react-icons/md';
+import { FaUserFriends } from 'react-icons/fa';
 
 function SideBar() {
   return (

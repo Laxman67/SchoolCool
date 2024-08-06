@@ -51,8 +51,10 @@ app.use(morgan(customMorganFormat));
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from the "backend/static" directory
-app.use(express.static(path.join(__dirname, 'static')));
+
+// Exposing uplods folder to `http://localhost/images/xxxxx.png`
+app.use('/images', express.static('uploads/images'));
+app.use('/courseBanner', express.static('uploads/course'));
 
 // Routes
 app.get('/api/v1', (req, res) => {

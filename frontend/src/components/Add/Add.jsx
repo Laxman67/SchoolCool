@@ -3,6 +3,7 @@ import { StudentContext } from '../../context/StudentContext';
 import './Add.css';
 import assets from '../../assets/assets';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -50,53 +51,52 @@ function Add() {
   const [imageSrc, setImageSrc] = useState(false);
 
   const onSubmit = async (data) => {
-    const image = imageSrc.name;
-    const {
-      firstName,
-      lastName,
-      dob,
-      gender,
-      email,
-      phone,
-      street,
-      postalCode,
-      city,
-      state,
-      enrollmentStatus,
-      course,
-      year,
-      grade,
-    } = data;
+    const formData = new FormData();
 
-    let newData = {
-      firstName,
-      image,
-      lastName,
-      dob,
-      gender,
-      email,
-      phone,
-      address: { street, city, state, postalCode },
-      enrollmentStatus,
-      academicHistory: {
-        course,
-        grade,
-        year,
-      },
-    };
+    formData.append('image', imageSrc);
+    formData.append('firstName', data.firstName);
+    formData.append('lastName', data.lastName);
+    formData.append('dob', data.dob);
+    formData.append('gender', data.gender);
+    formData.append('email', data.email);
+    formData.append('phone', data.phone);
+    formData.append('street', data.street);
+    formData.append('city', data.city);
+    formData.append('state', data.state);
+    formData.append('postalCode', data.postalCode);
+    formData.append('enrollmentStatus', data.enrollmentStatus);
+    formData.append('course', data.course);
+    formData.append('year', data.year);
+    formData.append('grade', data.grade);
 
-    // Make Request
-    let response = await axios.post(`${BASE_URL}student/add`, newData);
-    console.log(response);
+    try {
+      let response = await axios.post(`${BASE_URL}/student/add`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
 
-    reset();
-    setImageSrc(null);
+      console.log(response);
+      if (response) {
+        toast.success('Student Added Successfully');
+      }
+
+      reset();
+      setImageSrc(null);
+    } catch (error) {
+      console.error('Error adding student:', error);
+
+      toast.error('Student Added Failed');
+    }
   };
 
   return (
     <div className="form-container">
       <h3>Add Student</h3>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        style={{ backgroundColor: 'transparent' }}
+      >
         {/* Basic Information */}
         <div className="basic-details">
           <div className="image flex-col">
@@ -110,6 +110,7 @@ function Add() {
             </label>
             <input
               type="file"
+              name="image"
               id="image"
               accept="image/*"
               {...register('image')}

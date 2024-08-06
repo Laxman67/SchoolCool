@@ -1,33 +1,60 @@
 import studentModel from '../models/studentModel.js';
 import fs from 'fs';
 import validator from 'validator';
+import multer from 'multer';
 
 // Add Student
 export const addStudents = async (req, res) => {
+  const image = req.file.filename; // workig well in thunder client but not in actual
   const {
     firstName,
     lastName,
     dob,
     gender,
-    address,
+    street,
+    city,
+    state,
+    postalCode,
     email,
     phone,
     enrollmentStatus,
-    academicHistory,
-    image,
+    course,
+    year,
+    grade,
   } = req.body;
 
+  // for Checking the incomming req.body
+  // console.log({
+  //   firstName,
+  //   image,
+  //   lastName,
+  //   dob,
+  //   address: {
+  //     street,
+  //     city,
+  //     state,
+  //     postalCode,
+  //   },
+  //   email,
+  //   gender,
+  //   phone,
+  //   enrollmentStatus,
+  //   academicHistory: {
+  //     course,
+  //     year,
+  //     grade,
+  //   },
+  //   image, // Include the image field
+  // });
+
   if (
-    !image ||
     !firstName ||
     !lastName ||
     !gender ||
     !dob ||
-    !address ||
     !email ||
     !phone ||
-    !enrollmentStatus ||
-    !academicHistory
+    !enrollmentStatus
   ) {
     return res
       .status(404)
@@ -56,15 +83,26 @@ export const addStudents = async (req, res) => {
     firstName,
     lastName,
     dob,
-    address,
+    address: {
+      street,
+      city,
+      state,
+      postalCode,
+    },
     email,
     gender,
     phone,
     enrollmentStatus,
-    academicHistory,
+    academicHistory: {
+      course,
+      year,
+      grade,
+    },
     image, // Include the image field
   });
 
+  // TODO
+  console.log(newStudent);
   await newStudent
     .save()
     .then(() => {

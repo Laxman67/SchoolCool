@@ -1,12 +1,17 @@
-form {
-  background-color: aqua;
+.find-form {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.id-input {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-form button {
-  background-color: red;
-  width: 120px;
-  align-self: center;
+.id-input label {
+  font-weight: 500;
 }

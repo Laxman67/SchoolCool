@@ -14,7 +14,7 @@ form {
   gap: 5vw;
 }
 .basic-details {
-  border-right: 2px solid gray;
+  /* border-right: 2px solid gray; */
   padding-right: 2vw;
 }
 .flex-col {

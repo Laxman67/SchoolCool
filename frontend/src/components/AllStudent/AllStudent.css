@@ -1,0 +1,42 @@
+.student-card {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1vw auto;
+  background-color: wheat;
+  height: 210px;
+  padding: 1vw;
+  border: 1px solid tomato;
+  border-radius: 40px;
+}
+.basic-details,
+.contact-address,
+.academic-details {
+  padding: 1vw;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30%;
+}
+
+.basic-details img {
+  width: 80px;
+  height: 80px;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.academic-details h3,
+.basic-details h4 {
+  background-color: rgba(255, 99, 71, 0.768);
+  border-radius: 10px;
+  padding: 5px 12px;
+  color: white;
+}
+
+.academic-details ul li {
+  list-style-type: none;
+  padding: 5px;
+}
