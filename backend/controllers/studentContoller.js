@@ -163,7 +163,6 @@ export const getById = async (req, res) => {
 };
 export const deleteStudent = async (req, res) => {
   const { email } = req.body;
-
   const result = await studentModel.findOne({ email });
 
   if (result) {
