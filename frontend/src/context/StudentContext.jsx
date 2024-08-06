@@ -21,7 +21,17 @@ const StudentContextProvider = (props) => {
     return response;
   };
 
+  // Delete Student by Email
+
+  const deleteStudent = async (email) => {
+    let response = await axios.delete(`${BASE_URL}/student`, {
+      data: { email },
+    });
+    return response;
+  };
+
   let value = {
+    deleteStudent,
     getStudentById,
     BASE_URL,
     fetchAllStudents,

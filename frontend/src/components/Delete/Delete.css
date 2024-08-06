@@ -1,0 +1,26 @@
+.delete-student-container table {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.delete-student-container table thead {
+  margin-bottom: 20px;
+}
+.student-delete-item {
+  text-align: center;
+}
+
+.student-delete-item img {
+  width: 50px;
+  height: 60px;
+  background-position: center;
+  background-size: cover;
+}
+
+.delete-btn {
+  cursor: pointer;
+  font-size: 50px;
+  color: red;
+}
